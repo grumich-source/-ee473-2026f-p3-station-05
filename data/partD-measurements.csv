@@ -1,0 +1,4 @@
+# Part D hardware session. One session, one dataset, one report.
+# Angles in radians, positions in metres, in robot.widowx.JOINT_NAMES order.
+# *_cmd: commanded.  *_rviz: the pose replayed in RViz.  *_meas: measured with a rule.
+point,j0_cmd,j1_cmd,j2_cmd,j3_cmd,j4_cmd,j5_cmd,x_rviz,y_rviz,z_rviz,x_meas,y_meas,z_meas,notes
