@@ -21,8 +21,23 @@ kinematics/fk.py              from Project 2
 robot/widowx.py               from Project 2
 ```
 
-Nothing in them needs to change. If your Jacobian disagrees with finite differences in Part A, the
-forward kinematics is the first place to look, not the second.
+Nothing in them needs to change, and it does not matter whether your `fk()` came from a
+Denavit-Hartenberg table or from multiplying the URDF joint origins. Both give the same Jacobian.
+
+**Check it before you build on it.** Section 2.1 of the full instructions tabulates eight tool
+poses. Run the comparison:
+
+```
+python3 -c "from robot.widowx_reference import check; from kinematics.fk import fk; check(fk)"
+```
+
+Part A will not catch a wrong `fk()` for you: the finite-difference check differentiates your own
+forward kinematics, so it shows that `jacobian()` and `fk()` agree with each other and nothing
+more. A sign error passes it cleanly and then corrupts every number in Parts B and C.
+
+If the check fails, say so in the report and import from `robot/widowx_reference.py` instead, which
+passes it. That costs nothing here: Project 3 grades the Jacobian and the control loops, not the
+kinematics underneath them.
 
 ## Contents
 
@@ -30,6 +45,8 @@ forward kinematics is the first place to look, not the second.
 kinematics/
   jacobian.py     jacobian(), jacobian_fd(), manipulability()      yours
   control.py      joint_rates(), straight_line(), follow()         yours
+robot/
+  widowx_reference.py   a checked forward kinematics, and check()   given
 REPORT.md         the team report, and the document assessed
 data/             the Part D hardware session
 figures/          plots and photographs referenced by the report
