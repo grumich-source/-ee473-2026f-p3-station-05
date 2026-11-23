@@ -7,6 +7,10 @@ Consult Canvas for deliverables, deadlines, and the grading rubric.
 This repository belongs to one team and holds one submission: a single package and a single
 report, the same teams as Project 2.
 
+## Report
+
+[Read the Project 3 report](REPORT.md)
+
 ---
 
 ## First, bring your Project 2 package across
@@ -51,9 +55,6 @@ REPORT.md         the team report, and the document assessed
 data/             the Part D hardware session
 figures/          plots and photographs referenced by the report
 ```
-
-Every function is a stub raising `NotImplementedError`, with the section it comes from named in
-its docstring.
 
 **Observe the `robot/` boundary.** Every quantity particular to this manipulator stays in
 `robot/widowx.py`. The modules in `kinematics/` take numbers and return numbers.
