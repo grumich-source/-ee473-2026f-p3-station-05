@@ -176,7 +176,25 @@ DLS remains bounded.*
 
 ## 7. Hardware session
 
-The hardware session could not be completed.
+The hardware session was completed using Part B trajectory. A `.npz` file containing
+the trajectory was generated using the straight-line control script and checked against the
+hardware joint limits and velocity limit before execution. To make the first hardware run
+conservative, every tenth waypoint was sent with a 1.0 s goal time, giving a maximum commanded
+joint speed of 0.0089 rad/s.
 
+Five waypoints were used for measurement: start, quarter, half, three quarters, and goal. RViz was
+used to obtain the expected tool positions, and a measuring tape was used to measure the
+XYZ positions. The error between measured and RViz position was:
 
+| Point | RViz vs measured error |
+|---|---:|
+| Start | 7.28 mm |
+| Quarter | 3.61 mm |
+| Half | 5.00 mm |
+| Three quarters | 14.32 mm |
+| Goal | 20.22 mm |
+
+The increasing error in the x direction suggests measurement uncertainty or a difference between
+the physical ruler reference point and the modeled tool point. The complete measurements are in
+`data/partD-measurements.csv`.
 
